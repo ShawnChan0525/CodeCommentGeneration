@@ -1,8 +1,10 @@
+Django_server/cs_tool/cs_tool
+Django_server/cs_tool/db.sqlite3
+Django_server/cs_tool/manage.py
+Django_server/cs_tool/iCommenter/migrations
+Django_server/djangoenv
 gradlePlugin/*
-Django_server/*
-
-!Django_server/cs_tool/iCommenter
-
 !gradlePlugin/src
 
-# *.bin
+*.pyc
+*.bin
