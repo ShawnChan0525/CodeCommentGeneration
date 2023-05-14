@@ -1,7 +1,8 @@
-*/*
+gradlePlugin/*
+Django_server/*
 
 !Django_server/cs_tool/iCommenter
 
 !gradlePlugin/src
 
-*.bin
+# *.bin
