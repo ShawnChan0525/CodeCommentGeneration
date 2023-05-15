@@ -6,5 +6,8 @@ Django_server/djangoenv
 gradlePlugin/*
 !gradlePlugin/src
 
+!gradlePlugin/build.gradle
+!gradlePlugin/settings.gradle
+
 *.pyc
 *.bin
