@@ -31,4 +31,28 @@
 
 ## ECALE
 
-系统算法端
+系统算法端。
+<br>
+主要实现了基于对齐学习的代码注释生成技术ECALE（Enhancing Code-Comment Alignment Learning for Code Comment Generation）。主要分为**数据预处理模块**、**对齐学习训练模块**、**代码注释生成模型训练模块**三个部分。
+
+### 环境与依赖
+ubuntu 18.04<br>
+python==3.8<br>
+torch==1.7.1<br>
+transformers==4.6.1<br>
+tqdm==4.64.0<br>
+numpy==1.22.3
+
+### 数据集
+- JCSD和PCSD：https://github.com/gingasan/sit3
+- CodeSearchNet：https://github.com/github/CodeSearchNet
+
+### ECALE实现
+#### 数据预处理模块
+`python utils/split.py --dataset_name JCSD --aw_cls 40`
+
+#### 对齐学习训练模块
+`python encoder_finetune.py --output_dir outputdir/ECALE --dataset_name JCSD --model_name_or_path  microsoft/unixcoder-base --with_test --with_mlm --with_ulm --with_awp --with_cuda --epochs 50`
+
+#### 代码注释生成模型训练模块
+`python decoder_finetune.py --output_dir outputdir/ECALE --dataset_name JCSD --model_name_or_path  microsoft/unixcoder-base --unified_encoder_path outputdir/ECALE/unified_encoder_model/model.pth  --do_train --do_eval --do_pred --with_cuda --eval_steps 5000 --train_steps 100000`
