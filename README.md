@@ -2,10 +2,19 @@
 
 ## gradlePlugin
 
-系统客户端。客户端经如下步骤搭建与运行：
+系统客户端。
+
+### 客户端经如下步骤搭建与运行：
 1. 在**设置-项目结构**里配置正确的SDK版本：Intellij平台插件SDK，选择内部java平台为11的版本
 
-2. 点击**gradlePlugin[ runIde ]**按钮，等待gradlde构建，并运行沙盒演示，最终将展示Pycharm的初始界面
+2. 点击gradlePlugin[runIde]按钮，等待gradlde构建，并运行沙盒演示，最终将展示Pycharm的初始界面
+
+### 客户端使用流程：
+1. 在Pycharm中打开Python文件后，系统会协助补全您选择的方法级别的Python代码
+2. 使用快捷键**Shift + C**或右键选择**generate->generate comment**，确认生成注释后即可在侧面展示
+3. 点击对应生成注释下方的**Apply**按钮，可以选择直接插入注释，或者覆盖现有注释（如果有）
+4. 点击对应生成注释下方的**Feedback**按钮，可以对生成的注释进行评分与反馈
+5. 点击注释展示页面下方的**Suggestions**按钮，可以对系统进行评分与反馈
 
 ## Django_Server
 
