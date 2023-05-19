@@ -26,7 +26,6 @@ public class generateCommentAction extends AnAction {
     private static final String ToolWindowName = "iCommenter";
     @Override
     public void actionPerformed(AnActionEvent e) {
-        // TODO: insert action logic here 这里的TODO可以删了
         // 获取当前编辑器对象
         Project project = e.getProject();
         Editor editor = e.getRequiredData(CommonDataKeys.EDITOR);

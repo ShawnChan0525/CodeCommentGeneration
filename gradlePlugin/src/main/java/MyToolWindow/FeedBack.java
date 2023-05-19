@@ -34,6 +34,7 @@ public class FeedBack {
     private JTextField suggestionTextField;
     private JButton submitButton;
     private JButton button1;
+    private JTextField textField1;
     private HashMap<String,String> resMap = new HashMap<String, String>();
     private static JFrame frame= new JFrame("Feedback");;
 
@@ -43,7 +44,7 @@ public class FeedBack {
             public void actionPerformed(ActionEvent e) {
                 String res = null;
                 resMap.put("feedback","this is a feedback.");
-                resMap.put("score","1");
+                resMap.put("","1");
                 try {
                     res = HttpClientPool.getHttpClient().storeFeedbackPost("http://localhost:8080/store_feedback/", resMap);
                 } catch (Exception ex) {
@@ -51,7 +52,8 @@ public class FeedBack {
                     Messages.showMessageDialog("XXXFailed to connect to server.", "information", Messages.getInformationIcon());
                     return;
                 }
-                JOptionPane.showMessageDialog(panel1,res);
+//                JOptionPane.showMessageDialog(panel1,res);
+                JOptionPane.showMessageDialog(panel1,"success!");
             }
         });
     }

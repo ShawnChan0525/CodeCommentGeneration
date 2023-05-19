@@ -1,6 +1,12 @@
 package MyToolWindow;
 
+import com.intellij.openapi.ui.Messages;
+import deepcommenter.HttpClientPool;
+
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.HashMap;
 
 public class Suggestions {
     private JPanel panel1;
@@ -22,6 +28,27 @@ public class Suggestions {
     private JTextField suggestionTextField;
     private JButton submitButton;
     private JButton button1;
+    private HashMap<String,String> resMap = new HashMap<String, String>();
+
+    public Suggestions() {
+        submitButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String res = null;
+                resMap.put("feedback","this is a feedback.");
+                resMap.put("","1");
+                try {
+                    res = HttpClientPool.getHttpClient().storeFeedbackPost("http://localhost:8080/store_feedback/", resMap);
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                    Messages.showMessageDialog("XXXFailed to connect to server.", "information", Messages.getInformationIcon());
+                    return;
+                }
+//                JOptionPane.showMessageDialog(panel1,res);
+                JOptionPane.showMessageDialog(panel1,"success!");
+            }
+        });
+    }
 
     public static void main(String[] args) {
         JFrame frame = new JFrame("Suggestions");
